@@ -83,7 +83,7 @@ router.patch('/students/me', auth , async (req, res) => {
 
     try {
         //const stu = await student.findById(req.params.id)
-
+        
         updates.forEach((update) => req.stu[update] = req.body[update])
         await req.stu.save()
 
@@ -112,5 +112,6 @@ router.delete('/students/me', auth, async (req, res) => {
         res.status(500).send()
     }
 })
+
 
 module.exports = router

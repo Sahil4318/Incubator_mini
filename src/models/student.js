@@ -63,6 +63,12 @@ const studentSchema = new mongoose.Schema({
     }]
 })
 
+studentSchema.virtual('submitIdea', {
+    ref:'submitIdea',
+    localField:'_id',
+    foreignField:'owner'
+})
+
 studentSchema.methods.toJSON =function () {
     const student=this;
     const stuObject=student.toObject();

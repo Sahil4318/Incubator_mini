@@ -84,5 +84,16 @@ router.delete('/mentors/:id', async (req, res) => {
         res.status(500).send()
     }
 })
+///filtermentors?field=computerscience
+router.get('/filtermentors', async(req,res) => {
+    try{
+        const mentors= await mentor.find({field:"cse"});
+        res.send(mentors);
+    }catch(e)
+    {
+        res.send(e);
+    }
+})
+
 
 module.exports = router
